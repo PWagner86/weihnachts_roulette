@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Weihnachts Roulette</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
   <script type="module" src="./main.js"></script>
 </head>
@@ -12,14 +15,19 @@
     <h1>Weihnachts Roulette</h1>
   </header>
   <main>
+    <img data-id="santa" src="./utils/santa.gif" alt="Santa Claus" class="santa">
     <div class="left roulette__container">
-      <div data-id="left_number" class="left__number number__container center"></div>
+      <div class="left__number number__container center">
+        <h2 data-id="left_number"></h2>
+      </div>
       <div class="button__container center">
         <button data-id="left_button">left</button>
       </div>
     </div>
     <div class="right roulette__container">
-      <div data-id="right_number" class="right__number number__container center"></div>
+      <div class="right__number number__container center">
+        <h2 data-id="right_number"></h2>
+      </div>
       <div class="button__container center">
         <button data-id="right_button">right</button>
       </div>

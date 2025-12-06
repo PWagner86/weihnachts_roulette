@@ -2,6 +2,7 @@ const leftNumber = document.querySelector('[data-id="left_number"]');
 const leftBtn = document.querySelector('[data-id="left_button"]');
 const rightNumber = document.querySelector('[data-id="right_number"]');
 const rightBtn = document.querySelector('[data-id="right_button"]');
+const santa = document.querySelector('[data-id="santa"]');
 
 const MAX_NUMBER = 7;
 const RIGHT_NUMBERS = [];
@@ -35,14 +36,29 @@ const clearNumbers = () => {
   rightNumber.innerHTML = "";
 }
 
+const moveSanta = () => {
+   santa.classList.add("move_to_right");
+  setTimeout(() => {
+    santa.classList.remove("move_to_right");
+  }, 3000)
+}
+
+const disableButtonWhileAnimation = (button) => {
+  setTimeout(() => {
+    button.disabled = false;
+  }, 10000);
+}
+
 fillInTheNumbers();
 
 leftBtn.addEventListener("click", (e) => {
   e.preventDefault();
   clearNumbers();
-  rightBtn.disabled = false;
+  moveSanta();
+  // rightBtn.disabled = false;
+  disableButtonWhileAnimation(rightBtn);
   const left = getRandomNumberFromArray(LEFT_NUMBERS);
-  leftNumber.innerHTML = left.number;
+  setTimeout(() => leftNumber.innerHTML = left.number, 1000);
   removeIndexFromArray(LEFT_NUMBERS, left.index);
   console.log(LEFT_NUMBERS);
   leftBtn.disabled = true;
@@ -57,9 +73,11 @@ leftBtn.addEventListener("click", (e) => {
 
 rightBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  leftBtn.disabled = false;
+  moveSanta();
+  // leftBtn.disabled = false;
+  disableButtonWhileAnimation(leftBtn);
   const right = getRandomNumberFromArray(RIGHT_NUMBERS);
-  rightNumber.innerHTML = right.number;
+  setTimeout(() => rightNumber.innerHTML = right.number, 2000);
   removeIndexFromArray(RIGHT_NUMBERS, right.index);
   console.log(RIGHT_NUMBERS);
   rightBtn.disabled = true;
