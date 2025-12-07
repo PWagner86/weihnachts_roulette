@@ -51,6 +51,7 @@ main {
   height: 70svh;
   display: flex;
   position: relative;
+  overflow: hidden;
 }
 
 .roulette__container {
