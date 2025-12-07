@@ -20,6 +20,16 @@ body {
   font-family: "PT Serif", serif;
 }
 
+#canvas {
+  position: absolute;
+  /* width: 100%;
+  height: 100%; */
+  left: 0;
+  top: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
 header {
   height: 20svh;
 }
@@ -44,13 +54,15 @@ main {
 }
 
 .number__container {
-  height: 70%;
+  height: 60%;
 }
 
 .santa {
   position: absolute;
   transform: translateX(-50%);
-  left: -10%;
+  left: -50%;
+  height: 60%;
+  width: auto;
 }
 
 .move_to_right {
@@ -59,14 +71,23 @@ main {
 }
 
 .button__container {
-  height: 30%;
+  height: 40%;
+}
+
+.button__clear {
+  background-color: var(--color-green);
+  border: solid 0.25rem var(--color-gold);
+  opacity: 1;
 }
 
 h2 {
   z-index: 1;
+  color: var(--color-gold);
+  font-size: 4rem;
 }
 
 button {
+  transition: opacity ease-in-out 0.3s;
   background-color: var(--color-red);
   border: none;
   color: white;
@@ -76,13 +97,14 @@ button {
   cursor: pointer;
   font-family: inherit;
   text-transform: uppercase;
+  opacity: 0.5;
 }
 
 footer {
   height: 10svh;
 }
 
-h3 {
+h4 {
   background-color: var(--color-green);
   color: white;
   padding: 1rem;

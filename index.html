@@ -11,6 +11,7 @@
   <script type="module" src="./main.js"></script>
 </head>
 <body>
+  <canvas id="canvas"></canvas>
   <header class="center">
     <h1>Weihnachts Roulette</h1>
   </header>
@@ -21,7 +22,7 @@
         <h2 data-id="left_number"></h2>
       </div>
       <div class="button__container center">
-        <button data-id="left_button">left</button>
+        <button data-id="left_button" class="button__clear">Gruppe 1</button>
       </div>
     </div>
     <div class="right roulette__container">
@@ -29,12 +30,12 @@
         <h2 data-id="right_number"></h2>
       </div>
       <div class="button__container center">
-        <button data-id="right_button">right</button>
+        <button data-id="right_button" disabled="true">Gruppe 2</button>
       </div>
     </div>
   </main>
   <footer class="center">
-    <h3>Frohe Weihnachten und viel Glück</h3>
+    <h4>Frohe Weihnachten und viel Glück</h4>
   </footer>
 </body>
 </html>
