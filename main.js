@@ -72,6 +72,12 @@ fillInTheNumbers();
 
 leftBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  if (checkForGameOver(LEFT_NUMBERS, RIGHT_NUMBERS)) {
+    leftBtn.disabled = true;
+    rightBtn.disabled = true;
+    leftBtn.classList.remove("button__clear");
+    return;
+  }
   clearNumbers();
   moveSanta();
   disableButtonWhileAnimation(rightBtn);
@@ -81,16 +87,17 @@ leftBtn.addEventListener("click", (e) => {
   console.log(LEFT_NUMBERS);
   leftBtn.disabled = true;
   console.log(checkForGameOver(LEFT_NUMBERS, RIGHT_NUMBERS));
-  if (checkForGameOver(LEFT_NUMBERS, RIGHT_NUMBERS)) {
-    leftBtn.disabled = true;
-    rightBtn.disabled = true;
-    return;
-  }
 });
 
 
 rightBtn.addEventListener("click", (e) => {
   e.preventDefault();
+   if (checkForGameOver(LEFT_NUMBERS, RIGHT_NUMBERS)) {
+    leftBtn.disabled = true;
+    rightBtn.disabled = true;
+    rightBtn.classList.remove("button__clear");
+    return;
+  }
   moveSanta();
   disableButtonWhileAnimation(leftBtn);
   const right = getRandomNumberFromArray(RIGHT_NUMBERS);
@@ -99,9 +106,4 @@ rightBtn.addEventListener("click", (e) => {
   console.log(RIGHT_NUMBERS);
   rightBtn.disabled = true;
   console.log(checkForGameOver(LEFT_NUMBERS, RIGHT_NUMBERS));
-  if (checkForGameOver(LEFT_NUMBERS, RIGHT_NUMBERS)) {
-    leftBtn.disabled = true;
-    rightBtn.disabled = true;
-    return;
-  }
 });
