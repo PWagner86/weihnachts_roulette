@@ -21,9 +21,8 @@
 }
 
 body {
-  max-width: 2000px;
+  width: 100svw;
   height: 100svh;
-  margin: 0 auto;
   overflow: hidden;
   font-family: "PT Serif", serif;
 }
