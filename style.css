@@ -12,6 +12,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 .center {
@@ -23,7 +24,6 @@
 body {
   width: 100svw;
   height: 100svh;
-  overflow: hidden;
   font-family: "PT Serif", serif;
 }
 
@@ -51,7 +51,6 @@ main {
   height: 70svh;
   display: flex;
   position: relative;
-  overflow-x: hidden;
 }
 
 .roulette__container {
