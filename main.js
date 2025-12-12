@@ -5,6 +5,7 @@ const leftBtn = document.querySelector('[data-id="left_button"]');
 const rightNumber = document.querySelector('[data-id="right_number"]');
 const rightBtn = document.querySelector('[data-id="right_button"]');
 const santa = document.querySelector('[data-id="santa"]');
+const gameOverScreen = document.querySelector('[data-id="game-over_screen"]');
 
 const MAX_NUMBER = 7;
 const RIGHT_NUMBERS = [];
@@ -31,8 +32,13 @@ const removeIndexFromArray = (array, index) => {
   array.splice(index, 1);
 }
 
-const checkForGameOver = (leftArray, rightArray) => {
-  return leftArray.length == 0 && rightArray.length == 0;
+const checkForGameOver = () => {
+  if (LEFT_NUMBERS.length == 0 && RIGHT_NUMBERS.length == 0) {
+    leftBtn.disabled = true;
+    rightBtn.disabled = true;
+    rightBtn.classList.remove("button__clear");
+    gameOverScreen.classList.add("game-over__screen--on");
+  }
 }
 
 const clearNumbers = () => {
@@ -51,6 +57,7 @@ const disableButtonWhileAnimation = (button) => {
   setTimeout(() => {
     button.disabled = false;
     setButtonColor(button);
+    checkForGameOver();
   }, 5000);
 }
 
@@ -66,18 +73,16 @@ const setButtonColor = (button) => {
   };
 }
 
+const setGameOverScreen = () => {
+
+}
+
 CANVAS.init();
 
 fillInTheNumbers();
 
 leftBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  if (checkForGameOver(LEFT_NUMBERS, RIGHT_NUMBERS)) {
-    leftBtn.disabled = true;
-    rightBtn.disabled = true;
-    leftBtn.classList.remove("button__clear");
-    return;
-  }
   clearNumbers();
   moveSanta();
   disableButtonWhileAnimation(rightBtn);
@@ -86,18 +91,11 @@ leftBtn.addEventListener("click", (e) => {
   removeIndexFromArray(LEFT_NUMBERS, left.index);
   console.log(LEFT_NUMBERS);
   leftBtn.disabled = true;
-  console.log(checkForGameOver(LEFT_NUMBERS, RIGHT_NUMBERS));
 });
 
 
 rightBtn.addEventListener("click", (e) => {
   e.preventDefault();
-   if (checkForGameOver(LEFT_NUMBERS, RIGHT_NUMBERS)) {
-    leftBtn.disabled = true;
-    rightBtn.disabled = true;
-    rightBtn.classList.remove("button__clear");
-    return;
-  }
   moveSanta();
   disableButtonWhileAnimation(leftBtn);
   const right = getRandomNumberFromArray(RIGHT_NUMBERS);
@@ -105,5 +103,4 @@ rightBtn.addEventListener("click", (e) => {
   removeIndexFromArray(RIGHT_NUMBERS, right.index);
   console.log(RIGHT_NUMBERS);
   rightBtn.disabled = true;
-  console.log(checkForGameOver(LEFT_NUMBERS, RIGHT_NUMBERS));
 });
