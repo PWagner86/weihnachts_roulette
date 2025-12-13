@@ -6,6 +6,7 @@ const rightNumber = document.querySelector('[data-id="right_number"]');
 const rightBtn = document.querySelector('[data-id="right_button"]');
 const santa = document.querySelector('[data-id="santa"]');
 const gameOverScreen = document.querySelector('[data-id="game-over_screen"]');
+const santaSound = new Audio("./utils/sound/santa.wav");
 
 const MAX_NUMBER = 7;
 const RIGHT_NUMBERS = [];
@@ -83,6 +84,7 @@ fillInTheNumbers();
 
 leftBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  santaSound.play();
   clearNumbers();
   moveSanta();
   disableButtonWhileAnimation(rightBtn);
@@ -96,6 +98,7 @@ leftBtn.addEventListener("click", (e) => {
 
 rightBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  santaSound.play();
   moveSanta();
   disableButtonWhileAnimation(leftBtn);
   const right = getRandomNumberFromArray(RIGHT_NUMBERS);
