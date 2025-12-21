@@ -99,13 +99,18 @@ button {
   background-color: var(--color-red);
   border: none;
   color: white;
-  padding: 1rem 5rem;
-  font-size: 2rem;
+  width: 20rem;
+  height: 10rem;
   border-radius: 1rem;
   cursor: pointer;
   font-family: inherit;
   text-transform: uppercase;
   opacity: 0.5;
+}
+
+.button__image {
+  height: 100%;
+  width: auto;
 }
 
 footer {
