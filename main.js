@@ -48,7 +48,7 @@ const clearNumbers = () => {
 }
 
 const moveSanta = () => {
-   santa.classList.add("move_to_right");
+  santa.classList.add("move_to_right");
   setTimeout(() => {
     santa.classList.remove("move_to_right");
   }, 3000)
@@ -74,10 +74,6 @@ const setButtonColor = (button) => {
   };
 }
 
-const setGameOverScreen = () => {
-
-}
-
 CANVAS.init();
 
 fillInTheNumbers();
@@ -94,7 +90,6 @@ leftBtn.addEventListener("click", (e) => {
   console.log(LEFT_NUMBERS);
   leftBtn.disabled = true;
 });
-
 
 rightBtn.addEventListener("click", (e) => {
   e.preventDefault();
